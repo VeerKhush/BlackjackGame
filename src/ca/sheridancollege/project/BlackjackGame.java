@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;
@@ -49,7 +45,7 @@ public class BlackjackGame extends Game {
         }
     }
 
-    private void initializeDeck() {
+    public void initializeDeck() {
         ArrayList<Card> cards = new ArrayList<>();
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
         String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
@@ -63,12 +59,16 @@ public class BlackjackGame extends Game {
         deck.setCards(cards);
     }
 
-    private void dealInitialCards() {
+    public void dealInitialCards() {
         for (Player player : getPlayers()) {
             ((BlackjackPlayer) player).getHand().addCard((BlackjackCard) deck.deal());
             ((BlackjackPlayer) player).getHand().addCard((BlackjackCard) deck.deal());
         }
         dealer.getHand().addCard((BlackjackCard) deck.deal());
         dealer.getHand().addCard((BlackjackCard) deck.deal());
+    }
+
+    public Dealer getDealer() {
+        return dealer;
     }
 }
